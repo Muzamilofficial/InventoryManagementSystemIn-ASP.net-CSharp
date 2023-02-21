@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84cc479fc2fc482595aed9ca7d0de577" Name="Diagram1">
+        <EntityTypeShape EntityType="DbMobileInventoryModel.sysdiagram" Width="1.5" PointX="7.75" PointY="1.375" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblCompany" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblProduct" Width="1.5" PointX="3" PointY="2.5" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblProductCategory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblpurchase" Width="1.5" PointX="3" PointY="8.25" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblPurchaseDetail" Width="1.5" PointX="5.25" PointY="3" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblPurchaseDetailtempory" Width="1.5" PointX="7.75" PointY="4.375" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblStock" Width="1.5" PointX="5.25" PointY="7.5" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblVendor" Width="1.5" PointX="0.75" PointY="8.375" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.User" PointX="7.375" PointY="7.75" Width="1.5" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblProduc__Compa__2A4B4B5E" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblProduc__Categ__29572725" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblPurcha__Produ__06CD04F7" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblStock__produc__756D6ECB" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblPurcha__Purch__05D8E0BE" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblpurcha__Vendo__02FC7413" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblCustomer" Width="1.5" PointX="0.75" PointY="13.125" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblSell" Width="1.5" PointX="3" PointY="13.375" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblStockDetail" Width="1.5" PointX="5.25" PointY="0.75" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblSell__Custome__7DCDAAA2" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblStockD__Produ__019E3B86" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblStockD__SellI__00AA174D" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblSellDetail" Width="1.5" PointX="5.25" PointY="10.625" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblSellDe__Produ__1881A0DE" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblSellDe__SellI__178D7CA5" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblSellDetailtempory" Width="1.5" PointX="5.25" PointY="14.625" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblSellDe__Produ__2116E6DF" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblBilling" Width="1.5" PointX="11.625" PointY="7.875" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblPatient" Width="1.5" PointX="9.375" PointY="7.875" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblBillin__Patei__15702A09" />
+        <EntityTypeShape EntityType="DbMobileInventoryModel.tblInvoiceDetail" Width="1.5" PointX="8.25" PointY="10.875" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblInvoic__Custo__05F8DC4F" />
+        <AssociationConnector Association="DbMobileInventoryModel.FK__tblInvoic__Produ__06ED0088" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

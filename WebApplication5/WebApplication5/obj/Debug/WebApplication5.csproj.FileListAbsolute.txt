@@ -1,0 +1,25 @@
+C:\Users\Dw\Documents\Visual Studio 2013\Projects\WebApplication5\WebApplication5\bin\WebApplication5.dll.config
+C:\Users\Dw\Documents\Visual Studio 2013\Projects\WebApplication5\WebApplication5\bin\WebApplication5.dll
+C:\Users\Dw\Documents\Visual Studio 2013\Projects\WebApplication5\WebApplication5\bin\WebApplication5.pdb
+C:\Users\Dw\Documents\Visual Studio 2013\Projects\WebApplication5\WebApplication5\obj\Debug\WebApplication5.dll
+C:\Users\Dw\Documents\Visual Studio 2013\Projects\WebApplication5\WebApplication5\obj\Debug\WebApplication5.pdb
+C:\Users\Dw\Documents\Visual Studio 2013\Projects\WebApplication5\WebApplication5\bin\EntityFramework.dll
+C:\Users\Dw\Documents\Visual Studio 2013\Projects\WebApplication5\WebApplication5\bin\EntityFramework.xml
+C:\Users\Dw\Documents\Visual Studio 2013\Projects\WebApplication5\WebApplication5\bin\AjaxControlToolkit.dll
+C:\Users\Dw\Documents\Visual Studio 2013\Projects\WebApplication5\WebApplication5\obj\Debug\WebApplication5.csprojResolveAssemblyReference.cache
+E:\Projects Folder\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\bin\WebApplication5.dll.config
+E:\Projects Folder\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\bin\WebApplication5.dll
+E:\Projects Folder\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\bin\WebApplication5.pdb
+E:\Projects Folder\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\bin\EntityFramework.dll
+E:\Projects Folder\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\bin\EntityFramework.xml
+E:\Projects Folder\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\obj\Debug\WebApplication5.csprojResolveAssemblyReference.cache
+E:\Projects Folder\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\obj\Debug\WebApplication5.dll
+E:\Projects Folder\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\obj\Debug\WebApplication5.pdb
+E:\Degree Projects\Milestones Projects\Inventory Management System Web Application C# Asp.net\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\obj\Debug\WebApplication5.csprojResolveAssemblyReference.cache
+E:\Degree Projects\Milestones Projects\Inventory Management System Web Application C# Asp.net\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\obj\Debug\WebApplication5.dll
+E:\Degree Projects\Milestones Projects\Inventory Management System Web Application C# Asp.net\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\obj\Debug\WebApplication5.pdb
+E:\Degree Projects\Milestones Projects\Inventory Management System Web Application C# Asp.net\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\bin\WebApplication5.dll.config
+E:\Degree Projects\Milestones Projects\Inventory Management System Web Application C# Asp.net\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\bin\WebApplication5.dll
+E:\Degree Projects\Milestones Projects\Inventory Management System Web Application C# Asp.net\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\bin\WebApplication5.pdb
+E:\Degree Projects\Milestones Projects\Inventory Management System Web Application C# Asp.net\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\bin\EntityFramework.dll
+E:\Degree Projects\Milestones Projects\Inventory Management System Web Application C# Asp.net\Mobile Shop Inventory Management System\WebApplication5\WebApplication5\bin\EntityFramework.xml

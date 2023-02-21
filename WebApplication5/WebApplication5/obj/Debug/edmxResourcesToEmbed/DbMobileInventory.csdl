@@ -1,0 +1,973 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbMobileInventoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DbMobileInventoryEntities2" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DbMobileInventoryModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DbMobileInventoryModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="sysdiagrams" EntityType="DbMobileInventoryModel.sysdiagram" />
+    <EntitySet Name="tblCompanies" EntityType="DbMobileInventoryModel.tblCompany" />
+    <EntitySet Name="tblProducts" EntityType="DbMobileInventoryModel.tblProduct" />
+    <EntitySet Name="tblProductCategories" EntityType="DbMobileInventoryModel.tblProductCategory" />
+    <EntitySet Name="tblpurchases" EntityType="DbMobileInventoryModel.tblpurchase" />
+    <EntitySet Name="tblPurchaseDetails" EntityType="DbMobileInventoryModel.tblPurchaseDetail" />
+    <EntitySet Name="tblPurchaseDetailtempories" EntityType="DbMobileInventoryModel.tblPurchaseDetailtempory" />
+    <EntitySet Name="tblStocks" EntityType="DbMobileInventoryModel.tblStock" />
+    <EntitySet Name="tblVendors" EntityType="DbMobileInventoryModel.tblVendor" />
+    <EntitySet Name="Users" EntityType="DbMobileInventoryModel.User" />
+    <AssociationSet Name="FK__tblProduc__Compa__2A4B4B5E" Association="DbMobileInventoryModel.FK__tblProduc__Compa__2A4B4B5E">
+      <End Role="tblCompany" EntitySet="tblCompanies" />
+      <End Role="tblProduct" EntitySet="tblProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProduc__Categ__29572725" Association="DbMobileInventoryModel.FK__tblProduc__Categ__29572725">
+      <End Role="tblProductCategory" EntitySet="tblProductCategories" />
+      <End Role="tblProduct" EntitySet="tblProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblPurcha__Produ__06CD04F7" Association="DbMobileInventoryModel.FK__tblPurcha__Produ__06CD04F7">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblPurchaseDetail" EntitySet="tblPurchaseDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblStock__produc__756D6ECB" Association="DbMobileInventoryModel.FK__tblStock__produc__756D6ECB">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblStock" EntitySet="tblStocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblPurcha__Purch__05D8E0BE" Association="DbMobileInventoryModel.FK__tblPurcha__Purch__05D8E0BE">
+      <End Role="tblpurchase" EntitySet="tblpurchases" />
+      <End Role="tblPurchaseDetail" EntitySet="tblPurchaseDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblpurcha__Vendo__02FC7413" Association="DbMobileInventoryModel.FK__tblpurcha__Vendo__02FC7413">
+      <End Role="tblVendor" EntitySet="tblVendors" />
+      <End Role="tblpurchase" EntitySet="tblpurchases" />
+    </AssociationSet>
+    <EntitySet Name="tblCustomers" EntityType="DbMobileInventoryModel.tblCustomer" />
+    <EntitySet Name="tblSells" EntityType="DbMobileInventoryModel.tblSell" />
+    <EntitySet Name="tblStockDetails" EntityType="DbMobileInventoryModel.tblStockDetail" />
+    <AssociationSet Name="FK__tblSell__Custome__7DCDAAA2" Association="DbMobileInventoryModel.FK__tblSell__Custome__7DCDAAA2">
+      <End Role="tblCustomer" EntitySet="tblCustomers" />
+      <End Role="tblSell" EntitySet="tblSells" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblStockD__Produ__019E3B86" Association="DbMobileInventoryModel.FK__tblStockD__Produ__019E3B86">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblStockDetail" EntitySet="tblStockDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblStockD__SellI__00AA174D" Association="DbMobileInventoryModel.FK__tblStockD__SellI__00AA174D">
+      <End Role="tblSell" EntitySet="tblSells" />
+      <End Role="tblStockDetail" EntitySet="tblStockDetails" />
+    </AssociationSet>
+    <EntitySet Name="tblSellDetails" EntityType="DbMobileInventoryModel.tblSellDetail" />
+    <AssociationSet Name="FK__tblSellDe__Produ__1881A0DE" Association="DbMobileInventoryModel.FK__tblSellDe__Produ__1881A0DE">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblSellDetail" EntitySet="tblSellDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblSellDe__SellI__178D7CA5" Association="DbMobileInventoryModel.FK__tblSellDe__SellI__178D7CA5">
+      <End Role="tblSell" EntitySet="tblSells" />
+      <End Role="tblSellDetail" EntitySet="tblSellDetails" />
+    </AssociationSet>
+    <EntitySet Name="tblSellDetailtempories" EntityType="DbMobileInventoryModel.tblSellDetailtempory" />
+    <AssociationSet Name="FK__tblSellDe__Produ__2116E6DF" Association="DbMobileInventoryModel.FK__tblSellDe__Produ__2116E6DF">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblSellDetailtempory" EntitySet="tblSellDetailtempories" />
+    </AssociationSet>
+    <EntitySet Name="tblBillings" EntityType="DbMobileInventoryModel.tblBilling" />
+    <EntitySet Name="tblPatients" EntityType="DbMobileInventoryModel.tblPatient" />
+    <AssociationSet Name="FK__tblBillin__Patei__15702A09" Association="DbMobileInventoryModel.FK__tblBillin__Patei__15702A09">
+      <End Role="tblPatient" EntitySet="tblPatients" />
+      <End Role="tblBilling" EntitySet="tblBillings" />
+    </AssociationSet>
+    <EntitySet Name="tblInvoiceDetails" EntityType="DbMobileInventoryModel.tblInvoiceDetail" />
+    <AssociationSet Name="FK__tblInvoic__Custo__05F8DC4F" Association="DbMobileInventoryModel.FK__tblInvoic__Custo__05F8DC4F">
+      <End Role="tblCustomer" EntitySet="tblCustomers" />
+      <End Role="tblInvoiceDetail" EntitySet="tblInvoiceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblInvoic__Produ__06ED0088" Association="DbMobileInventoryModel.FK__tblInvoic__Produ__06ED0088">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblInvoiceDetail" EntitySet="tblInvoiceDetails" />
+    </AssociationSet>
+    <FunctionImport Name="spAddnewPurchase" ReturnType="Collection(Int32)">
+      <Parameter Name="VendorID" Mode="In" Type="Int32" />
+      <Parameter Name="PurchaseDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ProductID" Mode="In" Type="Int32" />
+      <Parameter Name="Qty" Mode="In" Type="Int32" />
+      <Parameter Name="PurchasePrice" Mode="In" Type="Int32" />
+      <Parameter Name="Saleprice" Mode="In" Type="Int32" />
+      <Parameter Name="IsNew" Mode="In" Type="Int32" />
+      <Parameter Name="PtaApprove" Mode="In" Type="Int32" />
+      <Parameter Name="PreviousPurchaseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spAddnewSellRecord" ReturnType="Collection(Int32)">
+      <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+      <Parameter Name="SellDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ProductID" Mode="In" Type="Int32" />
+      <Parameter Name="Qty" Mode="In" Type="Int32" />
+      <Parameter Name="Saleprice" Mode="In" Type="Int32" />
+      <Parameter Name="IsNew" Mode="In" Type="Int32" />
+      <Parameter Name="PtaApprove" Mode="In" Type="Int32" />
+      <Parameter Name="PreviousSellID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spAutoInsertSellPrices" ReturnType="Collection(DbMobileInventoryModel.spAutoInsertSellPrices_Result1)">
+      <Parameter Name="ProductName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spcustomerupdate" ReturnType="Collection(DbMobileInventoryModel.spcustomerupdate_Result1)">
+      <Parameter Name="firstname" Mode="In" Type="String" />
+      <Parameter Name="lastname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpfilldataSale" ReturnType="Collection(DbMobileInventoryModel.SpfilldataSale_Result1)">
+      <Parameter Name="Customerid" Mode="In" Type="Int32" />
+      <Parameter Name="selldate" Mode="In" Type="DateTime" />
+      <Parameter Name="amountpaid" Mode="In" Type="Int32" />
+      <Parameter Name="IsNew" Mode="In" Type="Boolean" />
+      <Parameter Name="PTAApprove" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Spsearchproduct" ReturnType="Collection(DbMobileInventoryModel.Spsearchproduct_Result1)">
+      <Parameter Name="PName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpsearchProductInStock2" ReturnType="Collection(DbMobileInventoryModel.SpsearchProductInStock2_Result1)">
+      <Parameter Name="PName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpsearchProductInStockFirst" ReturnType="Collection(DbMobileInventoryModel.SpsearchProductInStockFirst_Result1)">
+      <Parameter Name="CName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Spsearchstockproduct" ReturnType="Collection(DbMobileInventoryModel.Spsearchstockproduct_Result1)" />
+    <FunctionImport Name="spViewInvoiceDetails2" ReturnType="Collection(DbMobileInventoryModel.spViewInvoiceDetails2_Result1)" />
+    <FunctionImport Name="spViewReapeaterDataOnTextChangedNew3" ReturnType="Collection(DbMobileInventoryModel.spViewReapeaterDataOnTextChangedNew3_Result1)">
+      <Parameter Name="productname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spViewRepeaterDataOfformSell" ReturnType="Collection(DbMobileInventoryModel.spViewRepeaterDataOfformSell_Result1)" />
+    <FunctionImport Name="spViewRepeaterDataOfPurchaseForm2" ReturnType="Collection(DbMobileInventoryModel.spViewRepeaterDataOfPurchaseForm2_Result1)" />
+    <FunctionImport Name="Validate_User">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="View_VendorData_FromDataBase_Result">
+    <Property Type="Int32" Name="VendorID" Nullable="false" />
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CNIC" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Spfillrepeatervendor_Result">
+    <Property Type="Int32" Name="VendorID" Nullable="false" />
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CNIC" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SpFillPurchaseform_Result">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="Product" Nullable="true" />
+    <Property Type="String" Name="Model" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="PurchasePricePerUnit" Nullable="true" />
+    <Property Type="Int32" Name="PricePerUnit" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblCompany">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblProducts" Relationship="DbMobileInventoryModel.FK__tblProduc__Compa__2A4B4B5E" FromRole="tblCompany" ToRole="tblProduct" />
+  </EntityType>
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IMEI1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IMEI2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IMEI3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IMEI4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PurchasePrice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SalePrice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsNew" Type="Boolean" />
+    <NavigationProperty Name="tblCompany" Relationship="DbMobileInventoryModel.FK__tblProduc__Compa__2A4B4B5E" FromRole="tblProduct" ToRole="tblCompany" />
+    <NavigationProperty Name="tblProductCategory" Relationship="DbMobileInventoryModel.FK__tblProduc__Categ__29572725" FromRole="tblProduct" ToRole="tblProductCategory" />
+    <NavigationProperty Name="tblPurchaseDetails" Relationship="DbMobileInventoryModel.FK__tblPurcha__Produ__06CD04F7" FromRole="tblProduct" ToRole="tblPurchaseDetail" />
+    <NavigationProperty Name="tblStocks" Relationship="DbMobileInventoryModel.FK__tblStock__produc__756D6ECB" FromRole="tblProduct" ToRole="tblStock" />
+    <NavigationProperty Name="tblStockDetails" Relationship="DbMobileInventoryModel.FK__tblStockD__Produ__019E3B86" FromRole="tblProduct" ToRole="tblStockDetail" />
+    <NavigationProperty Name="tblSellDetails" Relationship="DbMobileInventoryModel.FK__tblSellDe__Produ__1881A0DE" FromRole="tblProduct" ToRole="tblSellDetail" />
+    <NavigationProperty Name="tblSellDetailtempories" Relationship="DbMobileInventoryModel.FK__tblSellDe__Produ__2116E6DF" FromRole="tblProduct" ToRole="tblSellDetailtempory" />
+    <NavigationProperty Name="tblInvoiceDetails" Relationship="DbMobileInventoryModel.FK__tblInvoic__Produ__06ED0088" FromRole="tblProduct" ToRole="tblInvoiceDetail" />
+  </EntityType>
+  <EntityType Name="tblProductCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblProducts" Relationship="DbMobileInventoryModel.FK__tblProduc__Categ__29572725" FromRole="tblProductCategory" ToRole="tblProduct" />
+  </EntityType>
+  <EntityType Name="tblpurchase">
+    <Key>
+      <PropertyRef Name="PurchaseID" />
+    </Key>
+    <Property Name="PurchaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendorID" Type="Int32" />
+    <Property Name="PurchaseDate" Type="DateTime" Precision="0" />
+    <Property Name="ShipmentID" Type="Int32" />
+    <Property Name="ShipmentTotal" Type="Int32" />
+    <Property Name="AmountPaid" Type="Int32" />
+    <NavigationProperty Name="tblPurchaseDetails" Relationship="DbMobileInventoryModel.FK__tblPurcha__Purch__05D8E0BE" FromRole="tblpurchase" ToRole="tblPurchaseDetail" />
+    <NavigationProperty Name="tblVendor" Relationship="DbMobileInventoryModel.FK__tblpurcha__Vendo__02FC7413" FromRole="tblpurchase" ToRole="tblVendor" />
+  </EntityType>
+  <EntityType Name="tblPurchaseDetail">
+    <Key>
+      <PropertyRef Name="PurchaseDetailsID" />
+    </Key>
+    <Property Name="PurchaseDetailsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Model" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="PurchasePrice" Type="Int32" />
+    <Property Name="SellPrice" Type="Int32" />
+    <Property Name="IsNew" Type="Boolean" />
+    <Property Name="PTAApprove" Type="Boolean" />
+    <NavigationProperty Name="tblProduct" Relationship="DbMobileInventoryModel.FK__tblPurcha__Produ__06CD04F7" FromRole="tblPurchaseDetail" ToRole="tblProduct" />
+    <NavigationProperty Name="tblpurchase" Relationship="DbMobileInventoryModel.FK__tblPurcha__Purch__05D8E0BE" FromRole="tblPurchaseDetail" ToRole="tblpurchase" />
+  </EntityType>
+  <EntityType Name="tblPurchaseDetailtempory">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product" Type="Int32" />
+    <Property Name="Model" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="PurchasePrice" Type="Int32" />
+    <Property Name="SellPrice" Type="Int32" />
+    <Property Name="IsNew" Type="Boolean" />
+    <Property Name="PTAApprove" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblStock">
+    <Key>
+      <PropertyRef Name="StockID" />
+    </Key>
+    <Property Name="StockID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productID" Type="Int32" />
+    <Property Name="AvailableQty" Type="Int32" />
+    <NavigationProperty Name="tblProduct" Relationship="DbMobileInventoryModel.FK__tblStock__produc__756D6ECB" FromRole="tblStock" ToRole="tblProduct" />
+  </EntityType>
+  <EntityType Name="tblVendor">
+    <Key>
+      <PropertyRef Name="VendorID" />
+    </Key>
+    <Property Name="VendorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VendorAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CNIC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblpurchases" Relationship="DbMobileInventoryModel.FK__tblpurcha__Vendo__02FC7413" FromRole="tblVendor" ToRole="tblpurchase" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Username" MaxLength="100" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Password" MaxLength="100" FixedLength="false" Unicode="true" Type="String" />
+  </EntityType>
+  <Association Name="FK__tblProduc__Compa__2A4B4B5E">
+    <End Type="DbMobileInventoryModel.tblCompany" Role="tblCompany" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblProduct" Role="tblProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCompany">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="tblProduct">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProduc__Categ__29572725">
+    <End Type="DbMobileInventoryModel.tblProductCategory" Role="tblProductCategory" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblProduct" Role="tblProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProductCategory">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="tblProduct">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblPurcha__Produ__06CD04F7">
+    <End Type="DbMobileInventoryModel.tblProduct" Role="tblProduct" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblPurchaseDetail" Role="tblPurchaseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="tblPurchaseDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblStock__produc__756D6ECB">
+    <End Type="DbMobileInventoryModel.tblProduct" Role="tblProduct" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblStock" Role="tblStock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="tblStock">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblPurcha__Purch__05D8E0BE">
+    <End Type="DbMobileInventoryModel.tblpurchase" Role="tblpurchase" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblPurchaseDetail" Role="tblPurchaseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblpurchase">
+        <PropertyRef Name="PurchaseID" />
+      </Principal>
+      <Dependent Role="tblPurchaseDetail">
+        <PropertyRef Name="PurchaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblpurcha__Vendo__02FC7413">
+    <End Type="DbMobileInventoryModel.tblVendor" Role="tblVendor" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblpurchase" Role="tblpurchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblVendor">
+        <PropertyRef Name="VendorID" />
+      </Principal>
+      <Dependent Role="tblpurchase">
+        <PropertyRef Name="VendorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="SpFillPurchaseform1_Result">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="Product" Nullable="true" />
+    <Property Type="String" Name="Model" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="PurchasePrice" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewRepeaterDataOfPurchaseForm_Result">
+    <Property Type="Int32" Name="PurchaseID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="PurchasePrice" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalPurchasePrice" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewRepeaterDataOfPurchaseForm2_Result">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="PurchaseID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="PurchasePrice" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalPurchasePrice" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Spsearchproduct_Result">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="PurchaseID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="PurchasePrice" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalPurchasePrice" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpsearchProductInStock_Result">
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpsearchProductInStock2_Result">
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="AvailableQty" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpsearchProductInStock3_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="AvailableQty" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Spsearchstockproduct_Result">
+    <Property Type="Int32" Name="sno" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="AvailableQty" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpsearchProductInStockFirst_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tblCustomer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FatherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CNIC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblSells" Relationship="DbMobileInventoryModel.FK__tblSell__Custome__7DCDAAA2" FromRole="tblCustomer" ToRole="tblSell" />
+    <Property Name="U_FileName" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="U_FilePath" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="tblInvoiceDetails" Relationship="DbMobileInventoryModel.FK__tblInvoic__Custo__05F8DC4F" FromRole="tblCustomer" ToRole="tblInvoiceDetail" />
+  </EntityType>
+  <EntityType Name="tblSell">
+    <Key>
+      <PropertyRef Name="SellID" />
+    </Key>
+    <Property Name="SellID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="SellDate" Type="DateTime" Precision="0" />
+    <Property Name="AmountPaid" Type="Int32" />
+    <NavigationProperty Name="tblCustomer" Relationship="DbMobileInventoryModel.FK__tblSell__Custome__7DCDAAA2" FromRole="tblSell" ToRole="tblCustomer" />
+    <NavigationProperty Name="tblStockDetails" Relationship="DbMobileInventoryModel.FK__tblStockD__SellI__00AA174D" FromRole="tblSell" ToRole="tblStockDetail" />
+    <NavigationProperty Name="tblSellDetails" Relationship="DbMobileInventoryModel.FK__tblSellDe__SellI__178D7CA5" FromRole="tblSell" ToRole="tblSellDetail" />
+  </EntityType>
+  <EntityType Name="tblStockDetail">
+    <Key>
+      <PropertyRef Name="SellDetailsID" />
+    </Key>
+    <Property Name="SellDetailsID" Type="Int32" Nullable="false" />
+    <Property Name="SellID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Model" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="SellPrice" Type="Int32" />
+    <Property Name="IsNew" Type="Boolean" />
+    <Property Name="PTAApprove" Type="Boolean" />
+    <NavigationProperty Name="tblProduct" Relationship="DbMobileInventoryModel.FK__tblStockD__Produ__019E3B86" FromRole="tblStockDetail" ToRole="tblProduct" />
+    <NavigationProperty Name="tblSell" Relationship="DbMobileInventoryModel.FK__tblStockD__SellI__00AA174D" FromRole="tblStockDetail" ToRole="tblSell" />
+  </EntityType>
+  <Association Name="FK__tblSell__Custome__7DCDAAA2">
+    <End Type="DbMobileInventoryModel.tblCustomer" Role="tblCustomer" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblSell" Role="tblSell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="tblSell">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblStockD__Produ__019E3B86">
+    <End Type="DbMobileInventoryModel.tblProduct" Role="tblProduct" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblStockDetail" Role="tblStockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="tblStockDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblStockD__SellI__00AA174D">
+    <End Type="DbMobileInventoryModel.tblSell" Role="tblSell" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblStockDetail" Role="tblStockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSell">
+        <PropertyRef Name="SellID" />
+      </Principal>
+      <Dependent Role="tblStockDetail">
+        <PropertyRef Name="SellID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblSellDetail">
+    <Key>
+      <PropertyRef Name="SellDetailID" />
+    </Key>
+    <Property Name="SellDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SellID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Model" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="SellPrice" Type="Int32" />
+    <Property Name="IsNew" Type="Boolean" />
+    <Property Name="PTAApprove" Type="Boolean" />
+    <NavigationProperty Name="tblProduct" Relationship="DbMobileInventoryModel.FK__tblSellDe__Produ__1881A0DE" FromRole="tblSellDetail" ToRole="tblProduct" />
+    <NavigationProperty Name="tblSell" Relationship="DbMobileInventoryModel.FK__tblSellDe__SellI__178D7CA5" FromRole="tblSellDetail" ToRole="tblSell" />
+  </EntityType>
+  <Association Name="FK__tblSellDe__Produ__1881A0DE">
+    <End Type="DbMobileInventoryModel.tblProduct" Role="tblProduct" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblSellDetail" Role="tblSellDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="tblSellDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblSellDe__SellI__178D7CA5">
+    <End Type="DbMobileInventoryModel.tblSell" Role="tblSell" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblSellDetail" Role="tblSellDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSell">
+        <PropertyRef Name="SellID" />
+      </Principal>
+      <Dependent Role="tblSellDetail">
+        <PropertyRef Name="SellID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblSellDetailtempory">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product" Type="Int32" />
+    <Property Name="Model" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SellPrice" Type="Int32" />
+    <Property Name="IsNew" Type="Boolean" />
+    <Property Name="PTAApprove" Type="Boolean" />
+    <NavigationProperty Name="tblProduct" Relationship="DbMobileInventoryModel.FK__tblSellDe__Produ__2116E6DF" FromRole="tblSellDetailtempory" ToRole="tblProduct" />
+  </EntityType>
+  <Association Name="FK__tblSellDe__Produ__2116E6DF">
+    <End Type="DbMobileInventoryModel.tblProduct" Role="tblProduct" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblSellDetailtempory" Role="tblSellDetailtempory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="tblSellDetailtempory">
+        <PropertyRef Name="Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="spAutoInsertSellPrices_Result">
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spViewRepeaterDataOfSellForm_Result">
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice1" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewRepeaterDataOfSellForm2_Result">
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spLoadQuantity_Result">
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="AvailableQty" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spLoadQuantity2_Result">
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpfilldataSale_Result">
+    <Property Type="Int32" Name="SellID" Nullable="false" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="DateTime" Name="SellDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="AmountPaid" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spcustomerupdate_Result">
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="FatherName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="CNIC" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="U_FileName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="U_FilePath" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="spSearchConcatenate_Result">
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="U_FilePath" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="301" />
+    <Property Type="String" Name="FatherName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="CNIC" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="spViewReapeaterDataOnTextChanged_Result">
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewRepeaterDataOfSellFormNew_Result">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewReapeaterDataOnTextChangedNew_Result">
+    <Property Type="Int32" Name="SellDetailID" Nullable="false" />
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewReapeaterDataOnTextChangedNew2_Result">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewRepeaterDataOfSell_Result">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="Customer_Name" Nullable="true" MaxLength="301" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewRepeaterDataOfSell1_Result">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="301" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewRepeaterDataOfSellingForm_Result">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="Product" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Customer" Nullable="true" MaxLength="301" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewRepeaterDataOfformSell_Result">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="String" Name="Customer" Nullable="true" MaxLength="301" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewReapeaterDataOnTextChangedNew3_Result">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="String" Name="Customer" Nullable="true" MaxLength="301" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tblBilling">
+    <Key>
+      <PropertyRef Name="BillingID" />
+    </Key>
+    <Property Name="BillingID" Type="Int32" Nullable="false" />
+    <Property Name="Total_Bill" Type="Int64" Nullable="false" />
+    <Property Name="Discount" Type="Int64" Nullable="false" />
+    <Property Name="Pateint_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblPatient" Relationship="DbMobileInventoryModel.FK__tblBillin__Patei__15702A09" FromRole="tblBilling" ToRole="tblPatient" />
+  </EntityType>
+  <EntityType Name="tblPatient">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="Int32" Nullable="false" />
+    <Property Name="Patient_Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Room_No" Type="Int32" Nullable="false" />
+    <Property Name="Ward" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblBillings" Relationship="DbMobileInventoryModel.FK__tblBillin__Patei__15702A09" FromRole="tblPatient" ToRole="tblBilling" />
+  </EntityType>
+  <Association Name="FK__tblBillin__Patei__15702A09">
+    <End Type="DbMobileInventoryModel.tblPatient" Role="tblPatient" Multiplicity="1" />
+    <End Type="DbMobileInventoryModel.tblBilling" Role="tblBilling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPatient">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="tblBilling">
+        <PropertyRef Name="Pateint_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="spViewInvoiceDetails_Result">
+    <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+    <Property Type="String" Name="Customer" Nullable="true" MaxLength="301" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Int32" Name="AmountPaid" Nullable="true" />
+    <Property Type="Int32" Name="AmountRemaining" Nullable="true" />
+    <Property Type="String" Name="PaymentMethod" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="InvoiceDate" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="spViewInvoiceDetails1_Result">
+    <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+    <Property Type="String" Name="Customer" Nullable="true" MaxLength="301" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Int32" Name="AmountPaid" Nullable="true" />
+    <Property Type="String" Name="PaymentMethod" Nullable="true" MaxLength="150" />
+    <Property Type="DateTime" Name="InvoiceDate" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tblInvoiceDetail">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="SellPrice" Type="Int32" />
+    <Property Name="AmountPaid" Type="Int32" />
+    <Property Name="PaymentMethod" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="InvoiceDate" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblCustomer" Relationship="DbMobileInventoryModel.FK__tblInvoic__Custo__05F8DC4F" FromRole="tblInvoiceDetail" ToRole="tblCustomer" />
+    <NavigationProperty Name="tblProduct" Relationship="DbMobileInventoryModel.FK__tblInvoic__Produ__06ED0088" FromRole="tblInvoiceDetail" ToRole="tblProduct" />
+  </EntityType>
+  <Association Name="FK__tblInvoic__Custo__05F8DC4F">
+    <End Type="DbMobileInventoryModel.tblCustomer" Role="tblCustomer" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblInvoiceDetail" Role="tblInvoiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="tblInvoiceDetail">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblInvoic__Produ__06ED0088">
+    <End Type="DbMobileInventoryModel.tblProduct" Role="tblProduct" Multiplicity="0..1" />
+    <End Type="DbMobileInventoryModel.tblInvoiceDetail" Role="tblInvoiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="tblInvoiceDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="spViewInvoiceDetails2_Result">
+    <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+    <Property Type="String" Name="Customer" Nullable="true" MaxLength="301" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Int32" Name="AmountPaid" Nullable="true" />
+    <Property Type="String" Name="PaymentMethod" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="InvoiceDate" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="spViewInvoiceDetails21_Result">
+    <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+    <Property Type="String" Name="Customer" Nullable="true" MaxLength="301" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Int32" Name="AmountPaid" Nullable="true" />
+    <Property Type="String" Name="PaymentMethod" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="InvoiceDate" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="spViewInvoiceDetails22_Result">
+    <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+    <Property Type="String" Name="Customer" Nullable="true" MaxLength="301" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Int32" Name="AmountPaid" Nullable="true" />
+    <Property Type="String" Name="PaymentMethod" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="InvoiceDate" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="spAutoInsertSellPrices_Result1">
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spcustomerupdate_Result1">
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="FatherName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="CNIC" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="U_FileName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="U_FilePath" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="SpfilldataSale_Result1">
+    <Property Type="Int32" Name="SellID" Nullable="false" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="DateTime" Name="SellDate" Nullable="true" />
+    <Property Type="Int32" Name="AmountPaid" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Spsearchproduct_Result1">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="PurchaseID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="PurchasePrice" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalPurchasePrice" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpsearchProductInStock2_Result1">
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="AvailableQty" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpsearchProductInStockFirst_Result1">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Spsearchstockproduct_Result1">
+    <Property Type="Int32" Name="sno" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="AvailableQty" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewInvoiceDetails2_Result1">
+    <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+    <Property Type="String" Name="Customer" Nullable="true" MaxLength="301" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Int32" Name="AmountPaid" Nullable="true" />
+    <Property Type="String" Name="PaymentMethod" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="InvoiceDate" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="spViewReapeaterDataOnTextChangedNew3_Result1">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="String" Name="Customer" Nullable="true" MaxLength="301" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewRepeaterDataOfformSell_Result1">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="SellID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="String" Name="Customer" Nullable="true" MaxLength="301" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spViewRepeaterDataOfPurchaseForm2_Result1">
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="Int32" Name="PurchaseID" Nullable="true" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="PurchasePrice" Nullable="true" />
+    <Property Type="Int32" Name="SellPrice" Nullable="true" />
+    <Property Type="Boolean" Name="IsNew" Nullable="true" />
+    <Property Type="Boolean" Name="PTAApprove" Nullable="true" />
+    <Property Type="Int32" Name="TotalPurchasePrice" Nullable="true" />
+    <Property Type="Int32" Name="TotalSellPrice" Nullable="true" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbMobileInventoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblBilling">
+    <Key>
+      <PropertyRef Name="BillingID" />
+    </Key>
+    <Property Name="BillingID" Type="int" Nullable="false" />
+    <Property Name="Total_Bill" Type="bigint" Nullable="false" />
+    <Property Name="Discount" Type="bigint" Nullable="false" />
+    <Property Name="Pateint_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblCompany">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblCustomer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="150" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="150" />
+    <Property Name="FatherName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="150" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="150" />
+    <Property Name="U_FileName" Type="nvarchar" MaxLength="150" />
+    <Property Name="U_FilePath" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tblInvoiceDetail">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="SellPrice" Type="int" />
+    <Property Name="AmountPaid" Type="int" />
+    <Property Name="PaymentMethod" Type="nvarchar" MaxLength="150" />
+    <Property Name="InvoiceDate" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tblPatients">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="int" Nullable="false" />
+    <Property Name="Patient_Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Room_No" Type="int" Nullable="false" />
+    <Property Name="Ward" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" />
+    <Property Name="IMEI1" Type="nvarchar" MaxLength="50" />
+    <Property Name="IMEI2" Type="nvarchar" MaxLength="50" />
+    <Property Name="IMEI3" Type="nvarchar" MaxLength="50" />
+    <Property Name="IMEI4" Type="nvarchar" MaxLength="50" />
+    <Property Name="PurchasePrice" Type="nvarchar" MaxLength="50" />
+    <Property Name="SalePrice" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsNew" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblProductCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryDesc" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblpurchase">
+    <Key>
+      <PropertyRef Name="PurchaseID" />
+    </Key>
+    <Property Name="PurchaseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorID" Type="int" />
+    <Property Name="PurchaseDate" Type="date" />
+    <Property Name="ShipmentID" Type="int" />
+    <Property Name="ShipmentTotal" Type="int" />
+    <Property Name="AmountPaid" Type="int" />
+  </EntityType>
+  <EntityType Name="tblPurchaseDetails">
+    <Key>
+      <PropertyRef Name="PurchaseDetailsID" />
+    </Key>
+    <Property Name="PurchaseDetailsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PurchaseID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Model" Type="nvarchar" MaxLength="150" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="PurchasePrice" Type="int" />
+    <Property Name="SellPrice" Type="int" />
+    <Property Name="IsNew" Type="bit" />
+    <Property Name="PTAApprove" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblPurchaseDetailtempory">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product" Type="int" />
+    <Property Name="Model" Type="nvarchar" MaxLength="150" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="PurchasePrice" Type="int" />
+    <Property Name="SellPrice" Type="int" />
+    <Property Name="IsNew" Type="bit" />
+    <Property Name="PTAApprove" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblSell">
+    <Key>
+      <PropertyRef Name="SellID" />
+    </Key>
+    <Property Name="SellID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="SellDate" Type="date" />
+    <Property Name="AmountPaid" Type="int" />
+  </EntityType>
+  <EntityType Name="tblSellDetails">
+    <Key>
+      <PropertyRef Name="SellDetailID" />
+    </Key>
+    <Property Name="SellDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SellID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Model" Type="nvarchar" MaxLength="150" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="SellPrice" Type="int" />
+    <Property Name="IsNew" Type="bit" />
+    <Property Name="PTAApprove" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblSellDetailtempory">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product" Type="int" />
+    <Property Name="Model" Type="nvarchar" MaxLength="150" />
+    <Property Name="SellPrice" Type="int" />
+    <Property Name="IsNew" Type="bit" />
+    <Property Name="PTAApprove" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblStock">
+    <Key>
+      <PropertyRef Name="StockID" />
+    </Key>
+    <Property Name="StockID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productID" Type="int" />
+    <Property Name="AvailableQty" Type="int" />
+  </EntityType>
+  <EntityType Name="tblStockDetails">
+    <Key>
+      <PropertyRef Name="SellDetailsID" />
+    </Key>
+    <Property Name="SellDetailsID" Type="int" Nullable="false" />
+    <Property Name="SellID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Model" Type="nvarchar" MaxLength="150" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="SellPrice" Type="int" />
+    <Property Name="IsNew" Type="bit" />
+    <Property Name="PTAApprove" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblVendor">
+    <Key>
+      <PropertyRef Name="VendorID" />
+    </Key>
+    <Property Name="VendorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="VendorAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__tblBillin__Patei__15702A09">
+    <End Role="tblPatients" Type="Self.tblPatients" Multiplicity="1" />
+    <End Role="tblBilling" Type="Self.tblBilling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPatients">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="tblBilling">
+        <PropertyRef Name="Pateint_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblInvoic__Custo__05F8DC4F">
+    <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="0..1" />
+    <End Role="tblInvoiceDetail" Type="Self.tblInvoiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="tblInvoiceDetail">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblInvoic__Produ__06ED0088">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+    <End Role="tblInvoiceDetail" Type="Self.tblInvoiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="tblInvoiceDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProduc__Categ__29572725">
+    <End Role="tblProductCategory" Type="Self.tblProductCategory" Multiplicity="0..1" />
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProductCategory">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="tblProduct">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProduc__Compa__2A4B4B5E">
+    <End Role="tblCompany" Type="Self.tblCompany" Multiplicity="0..1" />
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCompany">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="tblProduct">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblSell__Custome__7DCDAAA2">
+    <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="0..1" />
+    <End Role="tblSell" Type="Self.tblSell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="tblSell">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblSellDe__Produ__2116E6DF">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+    <End Role="tblSellDetailtempory" Type="Self.tblSellDetailtempory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="tblSellDetailtempory">
+        <PropertyRef Name="Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblStock__produc__756D6ECB">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+    <End Role="tblStock" Type="Self.tblStock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="tblStock">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblStockD__Produ__019E3B86">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+    <End Role="tblStockDetails" Type="Self.tblStockDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="tblStockDetails">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblStockD__SellI__00AA174D">
+    <End Role="tblSell" Type="Self.tblSell" Multiplicity="0..1" />
+    <End Role="tblStockDetails" Type="Self.tblStockDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSell">
+        <PropertyRef Name="SellID" />
+      </Principal>
+      <Dependent Role="tblStockDetails">
+        <PropertyRef Name="SellID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spAddnewPurchase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+    <Parameter Name="PurchaseDate" Type="date" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="Qty" Type="int" Mode="In" />
+    <Parameter Name="PurchasePrice" Type="int" Mode="In" />
+    <Parameter Name="Saleprice" Type="int" Mode="In" />
+    <Parameter Name="IsNew" Type="int" Mode="In" />
+    <Parameter Name="PtaApprove" Type="int" Mode="In" />
+    <Parameter Name="PreviousPurchaseID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spAddnewSellRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+    <Parameter Name="SellDate" Type="date" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="Qty" Type="int" Mode="In" />
+    <Parameter Name="Saleprice" Type="int" Mode="In" />
+    <Parameter Name="IsNew" Type="int" Mode="In" />
+    <Parameter Name="PtaApprove" Type="int" Mode="In" />
+    <Parameter Name="PreviousSellID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spAutoInsertSellPrices" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spcustomerupdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="firstname" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SpfilldataSale" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Customerid" Type="int" Mode="In" />
+    <Parameter Name="selldate" Type="date" Mode="In" />
+    <Parameter Name="amountpaid" Type="int" Mode="In" />
+    <Parameter Name="IsNew" Type="bit" Mode="In" />
+    <Parameter Name="PTAApprove" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Spsearchproduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SpsearchProductInStock2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SpsearchProductInStockFirst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Spsearchstockproduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spViewInvoiceDetails2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spViewReapeaterDataOnTextChangedNew3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="productname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spViewRepeaterDataOfformSell" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spViewRepeaterDataOfPurchaseForm2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Validate_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="DbMobileInventoryModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBilling" EntityType="Self.tblBilling" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCompany" EntityType="Self.tblCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCustomer" EntityType="Self.tblCustomer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblInvoiceDetail" EntityType="Self.tblInvoiceDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPatients" EntityType="Self.tblPatients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProductCategory" EntityType="Self.tblProductCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblpurchase" EntityType="Self.tblpurchase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPurchaseDetails" EntityType="Self.tblPurchaseDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPurchaseDetailtempory" EntityType="Self.tblPurchaseDetailtempory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSell" EntityType="Self.tblSell" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSellDetails" EntityType="Self.tblSellDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSellDetailtempory" EntityType="Self.tblSellDetailtempory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStock" EntityType="Self.tblStock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStockDetails" EntityType="Self.tblStockDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblVendor" EntityType="Self.tblVendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblBillin__Patei__15702A09" Association="Self.FK__tblBillin__Patei__15702A09">
+      <End Role="tblPatients" EntitySet="tblPatients" />
+      <End Role="tblBilling" EntitySet="tblBilling" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblInvoic__Custo__05F8DC4F" Association="Self.FK__tblInvoic__Custo__05F8DC4F">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblInvoiceDetail" EntitySet="tblInvoiceDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblInvoic__Produ__06ED0088" Association="Self.FK__tblInvoic__Produ__06ED0088">
+      <End Role="tblProduct" EntitySet="tblProduct" />
+      <End Role="tblInvoiceDetail" EntitySet="tblInvoiceDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProduc__Categ__29572725" Association="Self.FK__tblProduc__Categ__29572725">
+      <End Role="tblProductCategory" EntitySet="tblProductCategory" />
+      <End Role="tblProduct" EntitySet="tblProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProduc__Compa__2A4B4B5E" Association="Self.FK__tblProduc__Compa__2A4B4B5E">
+      <End Role="tblCompany" EntitySet="tblCompany" />
+      <End Role="tblProduct" EntitySet="tblProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblSell__Custome__7DCDAAA2" Association="Self.FK__tblSell__Custome__7DCDAAA2">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblSell" EntitySet="tblSell" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblSellDe__Produ__2116E6DF" Association="Self.FK__tblSellDe__Produ__2116E6DF">
+      <End Role="tblProduct" EntitySet="tblProduct" />
+      <End Role="tblSellDetailtempory" EntitySet="tblSellDetailtempory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblStock__produc__756D6ECB" Association="Self.FK__tblStock__produc__756D6ECB">
+      <End Role="tblProduct" EntitySet="tblProduct" />
+      <End Role="tblStock" EntitySet="tblStock" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblStockD__Produ__019E3B86" Association="Self.FK__tblStockD__Produ__019E3B86">
+      <End Role="tblProduct" EntitySet="tblProduct" />
+      <End Role="tblStockDetails" EntitySet="tblStockDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblStockD__SellI__00AA174D" Association="Self.FK__tblStockD__SellI__00AA174D">
+      <End Role="tblSell" EntitySet="tblSell" />
+      <End Role="tblStockDetails" EntitySet="tblStockDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

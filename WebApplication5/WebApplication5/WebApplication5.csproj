@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{049F08AE-230E-4AC2-B58B-BC1829350191}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication5</RootNamespace>
+    <AssemblyName>WebApplication5</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\..\..\..\Downloads\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Company.aspx" />
+    <Content Include="DbMobileInventory.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbMobileInventory.edmx</DependentUpon>
+      <LastGenOutput>DbMobileInventory.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DbMobileInventory.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbMobileInventory.edmx</DependentUpon>
+      <LastGenOutput>DbMobileInventory.cs</LastGenOutput>
+    </Content>
+    <Content Include="formCustomer.aspx" />
+    <Content Include="formSell.aspx" />
+    <Content Include="Main.Master" />
+    <Content Include="MessageBox.js" />
+    <Content Include="packages.config" />
+    <EntityDeploy Include="DbMobileInventory.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbMobileInventory.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DbMobileInventory.edmx.diagram">
+      <DependentUpon>DbMobileInventory.edmx</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Login.aspx" />
+    <Content Include="ProductCategory.aspx" />
+    <Content Include="Products.aspx" />
+    <Content Include="Purchase.aspx" />
+    <Content Include="Stock.aspx" />
+    <Content Include="style.css" />
+    <Content Include="Vendor.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Home.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Company.aspx.cs">
+      <DependentUpon>Company.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Company.aspx.designer.cs">
+      <DependentUpon>Company.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DbMobileInventory.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbMobileInventory.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbMobileInventory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbMobileInventory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbMobileInventory.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DbMobileInventory_2.cs" />
+    <Compile Include="formCustomer.aspx.cs">
+      <DependentUpon>formCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formCustomer.aspx.designer.cs">
+      <DependentUpon>formCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formSell.aspx.cs">
+      <DependentUpon>formSell.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formSell.aspx.designer.cs">
+      <DependentUpon>formSell.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductCategory.aspx.cs">
+      <DependentUpon>ProductCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductCategory.aspx.designer.cs">
+      <DependentUpon>ProductCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase.aspx.cs">
+      <DependentUpon>Purchase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Purchase.aspx.designer.cs">
+      <DependentUpon>Purchase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="spAutoInsertSellPrices_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAutoInsertSellPrices_Result1.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spcustomerupdate_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spcustomerupdate_Result1.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpfilldataSale_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpfilldataSale_Result1.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpFillPurchaseform1_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpFillPurchaseform_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Spfillrepeatervendor_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spLoadQuantity2_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spLoadQuantity_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSearchConcatenate_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpsearchProductInStock2_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpsearchProductInStock2_Result1.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpsearchProductInStock3_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpsearchProductInStockFirst_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpsearchProductInStockFirst_Result1.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpsearchProductInStock_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Spsearchproduct_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Spsearchproduct_Result1.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Spsearchstockproduct_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Spsearchstockproduct_Result1.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewInvoiceDetails1_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewInvoiceDetails21_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewInvoiceDetails22_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewInvoiceDetails2_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewInvoiceDetails2_Result1.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewInvoiceDetails_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewReapeaterDataOnTextChangedNew2_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewReapeaterDataOnTextChangedNew3_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewReapeaterDataOnTextChangedNew3_Result1.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewReapeaterDataOnTextChangedNew_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewReapeaterDataOnTextChanged_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewRepeaterDataOfformSell_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewRepeaterDataOfformSell_Result1.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewRepeaterDataOfPurchaseForm2_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewRepeaterDataOfPurchaseForm2_Result1.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewRepeaterDataOfPurchaseForm_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewRepeaterDataOfSell1_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewRepeaterDataOfSellForm2_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewRepeaterDataOfSellFormNew_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewRepeaterDataOfSellForm_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewRepeaterDataOfSellingForm_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spViewRepeaterDataOfSell_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stock.aspx.cs">
+      <DependentUpon>Stock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Stock.aspx.designer.cs">
+      <DependentUpon>Stock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblBilling.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCompany.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCustomer.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblInvoiceDetail.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPatient.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblProduct.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblProductCategory.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblpurchase.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPurchaseDetail.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPurchaseDetailtempory.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSell.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSellDetail.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSellDetailtempory.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblStock.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblStockDetail.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblVendor.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vendor.aspx.cs">
+      <DependentUpon>Vendor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vendor.aspx.designer.cs">
+      <DependentUpon>Vendor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View_VendorData_FromDataBase_Result.cs">
+      <DependentUpon>DbMobileInventory.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadFiles\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20101</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:20101/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
